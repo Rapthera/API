@@ -15,47 +15,70 @@ class CreateStatsTable extends Migration {
 		Schema::create('stats', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $this->string('match_id');
+            $this->integer('match_id');
+            // First Player
             $this->string('player_name_1');
-            $this->string('player_kills_1');
-            $this->string('player_deaths_1');
-            $this->string('player_assists_1');
+            $this->integer('player_kills_1');
+            $this->integer('player_deaths_1');
+            $this->integer('player_assists_1');
+            $this->integer('player_gpm_1');
+            
+            // Second Player
             $this->string('player_name_2');
-            $this->string('player_kills_2');
-            $this->string('player_deaths_2');
-            $this->string('player_assists_2');
+            $this->integer('player_kills_2');
+            $this->integer('player_deaths_2');
+            $this->integer('player_assists_2');
+            $this->integer('player_gpm_2');
+
+            // Third Player
             $this->string('player_name_3');
-            $this->string('player_kills_3');
-            $this->string('player_deaths_3');
-            $this->string('player_assists_3');
+            $this->integer('player_kills_3');
+            $this->integer('player_deaths_3');
+            $this->integer('player_assists_3');
+            $this->integer('player_gpm_3');
+
+            // Fourth Player
             $this->string('player_name_4');
-            $this->string('player_kills_4');
-            $this->string('player_deaths_4');
-            $this->string('player_assists_4');
+            $this->integer('player_kills_4');
+            $this->integer('player_deaths_4');
+            $this->integer('player_assists_4');
+
+            // Fifth Player
             $this->string('player_name_5');
             $this->string('player_kills_5');
             $this->string('player_deaths_5');
             $this->string('player_assists_5');
+
+            // Sixth Player
             $this->string('player_name_6');
             $this->string('player_kills_6');
             $this->string('player_deaths_6');
             $this->string('player_assists_6');
+
+            // Seventh Player
             $this->string('player_name_7');
             $this->string('player_kills_7');
             $this->string('player_deaths_7');
             $this->string('player_assists_7');
+            // Eighth Player
             $this->string('player_name_8');
             $this->string('player_kills_8');
             $this->string('player_deaths_8');
             $this->string('player_assists_8');
+
+            // Ninth Player
             $this->string('player_name_9');
             $this->string('player_kills_9');
             $this->string('player_deaths_9');
             $this->string('player_assists_9');
+
+            // Tenth Player
             $this->string('player_name_10');
             $this->string('player_kills_10');
             $this->string('player_deaths_10');
             $this->string('player_assists_10');
+
+            // Timestamps
 			$table->timestamps();
 		});
 	}
