@@ -6,7 +6,7 @@ class HeroesTableSeeder extends Seeder {
 	{
         DB::table('heroes')->delete();
 
-        Heroes::create
+        Hero::create
         ([
                 'match_id' => '1',
                 'player_name_1' => 'Kairus',
