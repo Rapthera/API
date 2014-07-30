@@ -3,14 +3,13 @@
 class APIController extends \BaseController
 {
 
-    public function getGPM($match_id)
+    public function getStats($match_id)
     {
+        $match = Stat::where('match_id', $match_id)->first();
 
-        if (GPM::find($match_id)) {
+        if ($match) {
 
-            $match = GPM::findOrfail($match_id);
-
-            $array =
+            $data =
                 [
                     'players' =>
                         [
@@ -29,9 +28,8 @@ class APIController extends \BaseController
 
                 ];
 
-            json_encode($array);
 
-            return $array;
+            return $data;
 
         } else {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -41,10 +39,12 @@ class APIController extends \BaseController
 
     public function getHeroes($match_id)
     {
-        if (Hero::find($match_id)) {
-            $match = Hero::findOrfail($match_id);
 
-            $array =
+        $match = Hero::where('match_id', $match_id)->first();
+
+        if ($match) {
+
+            $data =
                 [
                     'players' =>
                         [
@@ -108,36 +108,11 @@ class APIController extends \BaseController
                         ]
                 ];
 
-            json_encode($array);
-
-            return $array;
+            return $data;
 
         } else {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
         }
-    }
-
-    public function getStats($match_id)
-    {
-        if(Stat::find($match_id))
-        {
-            $stat = Stat::find($match_id);
-
-            $array =
-                [
-
-                ];
-
-            json_encode($stat);
-
-
-        }
-        else
-        {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
-        }
-
     }
 
 }

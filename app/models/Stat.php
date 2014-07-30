@@ -1,5 +1,7 @@
 <?php
 
 class Stat extends \Eloquent {
-	protected $fillable = [];
+    protected $fillable = [];
+
+    protected $table = 'stats';
 }

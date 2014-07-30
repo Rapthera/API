@@ -13,10 +13,6 @@
 
 Route::api(['version' => 'v1', 'prefix' => 'v1'], function()
 {
-    Route::get('users', function()
-    {
-        return User::all();
-    });
 
     /*
      * Authenticated API Routes
@@ -26,24 +22,19 @@ Route::api(['version' => 'v1', 'prefix' => 'v1'], function()
 
     Route::group(['before' => ''], function()
     {
-        /*
+        /**
          * Retrieve GPM for $match_id
+         *
+         * @return Response
          */
-        Route::get('matches/{match_id}/gpm', ['uses' => 'APIController@getGPM'], function($match_id, $gpm)
+        Route::get('matches/{match_id}/stats', ['uses' => 'APIController@getStats'], function($match_id)
         {
 
         });
-        /*
+        /**
          * Retrieve Heroes for $match_id
          */
         Route::get('matches/{match_id}/heroes', ['uses' => 'APIController@getHeroes'], function($match_id)
-        {
-
-        });
-        /*
-         * Retrieve Statistics for $match_id
-         */
-        Route::get('matches/{match_id}/stats', ['uses' => 'APIController@getStats'], function()
         {
 
         });
