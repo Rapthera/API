@@ -183,4 +183,25 @@ class APIController extends \BaseController
         }
     }
 
+    public function getItems($match_id)
+    {
+        $item = Item::where('match_id', $match_id);
+
+        if($item)
+        {
+            $items =
+                [
+
+                ];
+
+            return $items;
+
+        }
+        else
+        {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+        }
+    }
+
 }

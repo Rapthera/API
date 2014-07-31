@@ -39,5 +39,15 @@ Route::api(['version' => 'v1', 'prefix' => 'v1'], function()
 
         });
 
+        /*
+         * Retrieve Items for $match_id
+         *
+         * @return Response
+         */
+        Route::get('matches/{match_id}/items', ['uses' => 'APIController@getItems'], function($match_id)
+        {
+
+        });
+
     });
 });
