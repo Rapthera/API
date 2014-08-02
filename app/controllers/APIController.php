@@ -191,6 +191,21 @@ class APIController extends \BaseController
         {
             $items =
                 [
+                    'frame' =>
+                    [
+                        '1337' =>
+                        [
+                            'item' => 'Hexbane',
+                            'is_custom' => 'true',
+                            'components' =>
+                                [
+                                    '1',
+                                    '2',
+                                    '3',
+                                ],
+                            'enchantment' => 'Precision'
+                        ]
+                    ],
 
                 ];
 
