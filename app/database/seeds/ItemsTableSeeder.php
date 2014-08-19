@@ -3,18 +3,215 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 use Faker\Factory as Faker;
 
-class ItemsTableSeeder extends Seeder {
+class ItemsTableSeeder extends Seeder
+{
 
-	public function run()
-	{
-		$faker = Faker::create();
+    public function run()
+    {
+        $faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
-		{
-			Item::create([
+        foreach (range(1, 70) as $index) {
 
-			]);
-		}
-	}
+            $items =
+                [
+                    'Shadowveil',
+                    'Pyrostaff',
+                    'Demon Fang',
+                    'Crystalline Shiv',
+                    'Fel Blade',
+                    'Frost Prism',
+                    'Empowered Bracer',
+                    'Cursed Wand',
+                    'Inferno Brand',
+                    'Grimoire',
+                    'Berserkers Mask',
+                    'Woundsplitter',
+                    'Reapers Scythe',
+                    'Crushing Mace',
+                    'Numbing Lantern',
+                    'Soulstealer',
+                    'Mystic Dagger',
+                    'Power Conduit',
+                    'Thundercaller',
+                    'Wizards Hourglass',
+                    'Clerics Chalice',
+                    'Vampiric Dagger',
+                    'Zealots Blade',
+                    'Barrier Token',
+                    'Blessed Orb',
+                    'Silver Buckler',
+                    'Captains Crest',
+                    'Elder Stone',
+                    'Enduring Helm',
+                    'Giants Visage',
+                    'Blood Pendant',
+                    'Immortal Gaze',
+                    'Golden Protector',
+                    'Spirit Ward',
+                    'Dampening Cloak',
+                    'Rangers Vest',
+                    'Guardian Helm',
+                    'Iceforged Plate',
+                    'Stone Skin',
+                    'Glacial Gem',
+                    'Sage Circlet',
+                    'Healing Rod',
+                    'Diadem',
+                    'Archmages Ring',
+                    'Runed Scepter',
+                    'Windrush',
+                    'Everwinter Charm',
+                    'Throwing Axe',
+                    'Seers Eye ',
+                    'Hexbane ',
+                    'Void Key',
+                ];
+
+            $bool = ['true', 'false'];
+
+            $enchantments = [
+
+                'Prosperity',
+                'Desolation',
+                'The Hunt',
+                'Vampirism',
+                'Potency',
+                'Siphoning',
+                'Haste',
+                'Intellect',
+                'Alchemy',
+                'Mastery',
+                'Bloodlust',
+                'Haste',
+                'Recovery',
+                'Resistance',
+                'Dominion',
+                'Fortitude',
+                'Heritage',
+                'Ages',
+                'Wisdom',
+                'Diligence',
+                'Generosity',
+                'Strength',
+                'Might',
+                'Bounty',
+                'Authority',
+                'Preservation',
+                'Focus',
+                'Glory',
+                'Power',
+                'Ages',
+                'Sadism',
+                'Resistance',
+                'Benevolence',
+                'Youth',
+                'Perfection',
+                'Wit',
+                'Siphoning',
+                'Tenacity',
+                'Diligence',
+                'Recovery',
+                'Reflection',
+                'Fortitude',
+                'Empowerment',
+                'Wisdom',
+                'Ruin',
+                'Ages',
+                'Warding',
+                'Diligence',
+                'Simplicity',
+                'Diligence',
+                'Swiftness',
+                'Adaptation',
+                'Restoration',
+                'Focus',
+                'Conversion',
+                'Protection',
+                'Energy',
+                'Combustion',
+                'Malice',
+                'Diligence',
+                'Restraint',
+                'Ruin',
+                'Desolation',
+                'Brutality',
+                'Charity',
+                'Focus',
+                'Devastation',
+                'Redirection',
+                'Fortune',
+                'Absorption',
+                'Desolation',
+                'Brutality',
+                'Charity',
+                'Focus',
+                'Devastation',
+                'Redirection',
+                'Fortune',
+                'Absorption',
+                'Desolation',
+                'Thirst',
+                'Blood',
+                'Mastery',
+                'Rejuvenation',
+                'Virtue',
+                'Restraint',
+                'Swiftness',
+                'Fatigue',
+                'Focus',
+                'Marksmanship',
+                'Perfection',
+                'Rejuvenation',
+                'Siphoning',
+                'Sundering',
+                'Vampirsm',
+                'Constituation',
+                'Restoration',
+                'Conversion',
+                'Mana draining',
+                'Dominion',
+                'Defense',
+                'Diligence',
+                'Regeneration',
+                'Rhythm',
+                'Vampirism',
+                'Resilience',
+                'Destruction',
+                'Madness',
+                'Desperation',
+                'Mending',
+                'Wisdom',
+                'Restraint',
+                'Desperation',
+                'Vigor',
+                'Desperation',
+                'Swiftness',
+                'Efficiency',
+                'Siphoning',
+                'Influence',
+                'Virtue',
+                'Focus',
+                'Ruin',
+                'Fortune',
+                'Might',
+                'Focus'
+            ];
+            $randBool = array_rand($bool);
+            $randItem = array_rand($items);
+            $randEnchantment = array_rand($enchantments);
+
+
+
+            Item::create([
+                'match_id' => 1,
+                'frame' => rand(1, 100000),
+                'player_name' => $faker->userName,
+                'item_name' => $items[$randItem],
+                'is_custom' => $bool[$randBool],
+                'enchantment' => $enchantments[$randEnchantment],
+
+            ]);
+        }
+    }
 
 }

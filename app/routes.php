@@ -22,6 +22,12 @@ Route::api(['version' => 'v1', 'prefix' => 'v1'], function()
 
     Route::group(['before' => ''], function()
     {
+        Route::get('users', function()
+        {
+            return Response::api()->withCollection(User::all(), new UserTransformer);
+
+        });
+
         /**
          * Retrieve GPM for $match_id
          *

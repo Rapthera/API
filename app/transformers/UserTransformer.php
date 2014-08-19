@@ -3,8 +3,11 @@
 
 class UserTransformer extends League\Fractal\TransformerAbstract
 {
-    public function transform()
+    public function transform(User $user)
     {
+        return [
+            'id' => (int)$user->id
+        ];
 
     }
 

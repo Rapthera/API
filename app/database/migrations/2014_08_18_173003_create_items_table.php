@@ -15,7 +15,13 @@ class CreateItemsTable extends Migration {
 		Schema::create('items', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
+            $table->integer('match_id');
+            $table->string('frame');
+			$table->string('player_name');
+            $table->string('item_name');
+            $table->boolean('is_custom');
+            $table->string('enchantment');
+            $table->timestamps();
 		});
 	}
 

@@ -1,16 +1,23 @@
 <?php
 
+use Faker\Factory as Faker;
+
 class UsersTableSeeder extends Seeder {
 
 	public function run()
 	{
-        DB::table('users')->delete();
+		$faker = Faker::create();
 
-        User::create
-        ([
-                'username' => 'Rapthera',
+		foreach(range(1, 10) as $index)
+		{
+			User::create([
+
+                'username' => $faker->userName,
                 'password' => Hash::make('123'),
-        ]);
+                'api_key' => str_random(64)
+
+			]);
+		}
 	}
 
 }
