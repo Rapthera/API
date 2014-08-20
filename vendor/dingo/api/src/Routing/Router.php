@@ -110,6 +110,7 @@ class Router extends IlluminateRouter
      * @param  array  $options
      * @param  callable  $callback
      * @return void
+     * @throws \BadMethodCallException
      */
     public function api($options, callable $callback)
     {
@@ -148,6 +149,7 @@ class Router extends IlluminateRouter
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response|\Dingo\Api\Http\Response
+     * @throws \Exception
      */
     public function dispatch(Request $request)
     {
@@ -285,15 +287,21 @@ class Router extends IlluminateRouter
     {
         $response = parent::prepareResponse($request, $response);
 
-        if ($response instanceof IlluminateResponse && $this->requestTargettingApi($request)) {
-            $response = ApiResponse::makeFromExisting($response);
-        }
+        if ($this->requestTargettingApi($request)) {
 
-        if ($response->isSuccessful() && $this->getConditionalRequest()) {
-            $response->setEtag(md5($response->getContent()));
-        }
+            if ($response instanceof IlluminateResponse) {
+                $response = ApiResponse::makeFromExisting($response);
+            }
 
-        $response->isNotModified($request);
+            if ($response->isSuccessful() && $this->getConditionalRequest()) {
+
+                if (! $response->headers->has('ETag')) {
+                    $response->setEtag(md5($response->getContent()));
+                }
+
+                $response->isNotModified($request);
+            }
+        }
 
         return $response;
     }

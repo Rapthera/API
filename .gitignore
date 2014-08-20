@@ -1,7 +1,6 @@
 /bootstrap/compiled.php
 composer.phar
 composer.lock
-.env.*.php
 .env.php
 /bootstrap
 .DS_Store
